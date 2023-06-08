@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>classList 활용하기</title>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <h1 id="title">My Profile</h1>
+  <div id="profile">
+    <img src="images/pf.png" alt="도레미">
+    <div id="desc">
+      <p class="user clicked">이름 : 도레미</p>
+      <p class="user">주소 : somewhere</p>
+      <p class="user">연락처 : 1234-5678</p>
+      <div></div>
+    </div>
+  </div>
+  <script>
+    const title = document.querySelector("#title");
+    const userName = document.querySelector("#desc p");
+    const pfImage= document.querySelector("#profile img");
+
+    title.onclick = () => {
+      // if(!title.classList.contains("clicked")){
+      //   title.classList.add("clicked");
+      //   title.innerText = '프로필';
+      // }else{
+      //   title.classList.remove("clicked");
+      //   title.innerText= 'My Profile';
+      // }
+
+      //위 코드를 아래 한 줄로 수정 가능
+      title.classList.toggle("clicked");
+    }
+    userName.onclick = () => {
+      userName.innerHTML = `이름: <b>민들레</b>`;
+      userName.style.color = "red";
+      userName.classList.toggle("blue-italic");
+    };
+    pfImage.onclick = () => pfImage.src = "images/pf2.png";
+  </script>
+</body>
+</html>
