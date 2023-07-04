@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>연습문제 1</title>
+	<link rel="stylesheet" href="css/solution-1.css">
+</head>
+<body>
+	<div id="container">
+		<h1>내가 살아온 시간</h1>
+		<form>
+			<label><input type="text" id="year">년 </label>
+			<label><input type="text" id="month">월 </label>
+			<label><input type="text" id="date">일 </label>
+			<button type="button" id="bttn">계산</button>
+		</form>
+	
+		<div id="result">	
+			<p id="current"></p>		
+			<p id="days" class="accent"></p>
+			<p id="hours" class="accent"></p>						
+		</div>
+	</div>
+	<script>
+		$year = document.querySelector("#year").value;
+		$month = document.querySelector("#month").value;
+		$date = document.querySelector("#date").value;
+		$bttn = document.querySelector("#bttn");
+
+		$current = document.querySelector("#current");
+		$days = document.querySelector("#days");
+		$hours = document.querySelector("#hours");
+
+		const today = new Date();
+		$current.innerText = `${today.getFullYear()}년 ${today.getMonth() +1 }월 ${today.getDate()}일 ${today.getHours()}시 ${today.getMinutes()}분 현재`;
+
+		$bttn.addEventListener("click", () => {
+			const birthDay = new Date($year, $month-1, $date);
+
+			let passed = today.getTime() - birthDay.getTime();
+
+			$days.innerText = `날짜로는 ${(passed)/(1000*60*60*24)}일이 흐르고, `
+			$hours.innerText = `시간으로는 ${(passed)/(1000*60*60)}시간이 흘렀습니다. `
+
+			$year.value = "";
+			$month.value = "";
+			$date.value = "";
+		})
+
+
+
+	</script>
+</body>
+</html>
