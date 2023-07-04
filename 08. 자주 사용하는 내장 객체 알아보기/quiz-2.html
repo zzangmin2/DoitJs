@@ -16,5 +16,29 @@
       </form>
       <div id="result"></div>
     </div>
+  <script>
+
+    const submit = document.querySelector("#raffle");
+    const reset = document.querySelector("#clear");
+
+    submit.addEventListener("click", function(e){
+      e.preventDefault();
+      const seed = document.querySelector("#seed");
+      const total = document.querySelector("#total");
+      const result = document.querySelector("#result");
+      let win = "";
+
+      for(let i =1; i<=total.value; i++){
+        let winner = Math.floor((Math.random() * seed.value) + 1);
+        win += `${winner}번, `;
+      }
+      // console.log(win);
+      result.classList.add("show");
+      result.innerText =`당첨자: ${win}`;
+
+    })
+
+
+  </script>
   </body>
 </html>
