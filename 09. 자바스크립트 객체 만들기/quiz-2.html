@@ -1,0 +1,38 @@
+ <!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>연습 문제 2</title>
+</head>
+<body>
+<script>
+  class Pet {
+    constructor(name, color) {
+      this.name = name;
+      this.color = color;
+    }
+
+    run(){
+      alert(`${this.name} is running`); //오답. name X -> this.name
+    }
+  }
+
+  class Cat extends Pet{
+    constructor(name, color, breed) {
+      super(name, color);
+      this.breed = breed;
+    }
+
+    viewInfo(){
+      alert(`이름: ${this.name}, 품종: ${this.breed}, 색깔: ${this.color}`);
+    }
+  }
+
+  const pet2 = new Cat ("복이","말티푸","흰색");
+   pet2.viewInfo();
+
+</script>
+</body>
+</html>
