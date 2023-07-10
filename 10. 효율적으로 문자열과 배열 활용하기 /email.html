@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>메일 주소 일부 가리기</title>
+  <link rel="stylesheet" href="css/email.css">
+</head>
+<body>  
+  <div id="userInput">
+    <label>
+      <input type="email" id="userEmail" placeholder="이메일 주소를 입력하세요." autofocus>
+    </label>
+    <button>실행</button>
+  </div>  
+  <div id="result"></div>
+  <script>
+    const email = document.querySelector("#userEmail");
+    const button = document.querySelector("button");
+    const result = document.querySelector("#result");
+
+    // @ 앞의 사용자 이름 세 자리만 보여주기
+    // button.addEventListener("click", function(){
+    //   let username, domain;
+    //
+    //   if(email.value !== ""){
+    //     username = email.value.split("@")[0] ;  //@기준으로 앞 부분
+    //     username = email.value.substring(0,3);  //username 중 세 자리만 필요
+    //     domain = email.value.split("@")[1];
+    //     result.innerText = `${username}...@${domain}` //결과 표시
+    //     email.value ="";
+    //   }
+    // });
+
+    button.addEventListener("click", function(){
+      let username, domain, half;
+
+      if(email.value !== ""){
+        username = email.value.split("@")[0]; //@기준으로 앞 부분
+        half = username.length / 2; //username의 길이를 절반으로 나눔
+        username = username.substring(0, (username.length - half));
+        domain = email.value.split("@")[1];  //@기준으로 뒷 부분
+        result.innerText = `${username}...@${domain}`;  //결과를 표시합니다.
+        email.value = "";
+      }
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>특정 문자 갯수 확인하기</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <script>
+    function counting(str, ch){
+      let count = 0;
+
+      for(i=0; i<str.length; i++){
+        //대괄호
+        // if(str[i] === ch){
+        //   count += 1;
+        // }
+        //charAt
+        if(str.charAt(i) === ch){
+          count += 1;
+        }
+      }
+      return count;
+    }
+
+    const string = prompt("문자열을 입력하세요");
+    const letter = prompt("어떤 문자를 체크하겠습니까?");
+
+    const result = counting(string, letter);
+    document.write(`"${string}"에는 "${letter}"가 <span style="color: red"> ${result}개</span>있습니다. `)
+  </script>
+</body>
+</html>
