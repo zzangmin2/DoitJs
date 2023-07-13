@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>첫글자만 대문자로 바꾸기</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <script>
+    const string = prompt("영문 소문자로 된 문자열을 입력하세요.");
+
+    // const firstCh = string[0].toUpperCase();
+    // const remainStr = string.slice(1);
+    // const result = firstCh + remainStr;
+
+    const result = [string[0].toUpperCase(), ...string.slice(1)].join("");
+    document.write(result);
+  </script>
+</body>
+</html>
